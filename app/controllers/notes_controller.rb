@@ -11,19 +11,17 @@ class NotesController < ApplicationController
     end
 
 
-    def create
-
+    def create        
         note = Note.new(note_params)
         return render json: {errors: note.errors.full_messages}, status: 401 unless note.save
         render json: note
-
     end
 
 
     def update
         note = Note.find(params[:note_id])
         note.update(note_params)      
-        render json: note        
+        render json: note      
     end
 
 
@@ -35,7 +33,7 @@ class NotesController < ApplicationController
     private
     
     def note_params
-        params.permit("title", "content", "user_id")
+        params.require(:note).permit("title", "content", "user_id")
     end
 
 end
