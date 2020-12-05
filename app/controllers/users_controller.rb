@@ -1,20 +1,16 @@
 class UsersController < ApplicationController
 
-
     def create
         user = User.find_by(username: params[:username])
         if user && user.authenticate(params[:password])
-            
-            # logged in
             render json: user
         else
             render json: {errors: "Invalid Username/Password"}
-            # not logged in
         end
     end
 
     def signup
-
+        byebug
     end
 
     private
