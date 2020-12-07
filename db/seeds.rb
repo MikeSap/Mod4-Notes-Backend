@@ -9,8 +9,8 @@
 
 mike = User.create(username: "Mike", password:"123", password_confirmation:"123")
 
-50.times do
+150.times do
 
-    Note.create(title: Faker::TvShows::TheFreshPrinceOfBelAir.character, content: Faker::TvShows::TheFreshPrinceOfBelAir.quote, user: mike)
+    Note.create(title: Faker::Music::Prince.song, content: Faker::Music::Prince.lyric, user: mike)
 
 end
