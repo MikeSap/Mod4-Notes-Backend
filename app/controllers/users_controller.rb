@@ -18,6 +18,10 @@ class UsersController < ApplicationController
         end
     end
 
+    def authenticate
+        byebug
+    end
+
     private
 
     def user_params

@@ -1,16 +1,5 @@
 class NotesController < ApplicationController
 
-
-    def index
-        
-    end
-
-
-    def show
-
-    end
-
-
     def create     
         note = Note.new(note_params)
         return render json: {errors: note.errors.full_messages}, status: 401 unless note.save  
