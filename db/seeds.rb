@@ -8,9 +8,8 @@
 
 
 mike = User.create(username: "Mike", password:"123", password_confirmation:"123")
-# photo = "/home/mike/flatiron/projects/Mod-4-Wireframe/Mod4-Notes-Backend/storage/prince.jpg"
 150.times do
 
-    Note.create(title: Faker::Music::Prince.song, content: Faker::Music::Prince.lyric, user: mike )
-
+   note =  Note.create(title: Faker::Music::Prince.song, content: Faker::Music::Prince.lyric, user: mike )
+   note.photo.attach(io: File.open('app/assets/images/prince.jpg'), filename: 'prince.jpg', content_type: 'image/jpg')
 end
