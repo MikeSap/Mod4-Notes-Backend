@@ -9,7 +9,7 @@
 
 mike = User.create(username: "Mike", password:"123", password_confirmation:"123")
 150.times do
-    num = rand(1..16)
+   num = rand(1..16)
    note =  Note.create(title: Faker::Music::Prince.song, content: Faker::Music::Prince.lyric, user: mike )
    note.photo.attach(io: File.open("app/assets/images/prince#{num}.jpg"), filename: "prince#{num}.jpg", content_type: 'image/jpg')
 end
