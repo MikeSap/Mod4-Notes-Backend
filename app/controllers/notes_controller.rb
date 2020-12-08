@@ -3,8 +3,10 @@ class NotesController < ApplicationController
 
     def create     
         note = Note.new(note_params)
+        if params["photo"] == "null"
+            return render json: {errors: ["Must Have Photo Attached"]}, status: 401   
+        end 
         return render json: {errors: note.errors.full_messages}, status: 401 unless note.save  
-
         render json: note
     end
 
@@ -12,7 +14,8 @@ class NotesController < ApplicationController
     def update
         note = Note.find(params[:note_id])
         note.update(note_params)      
-        render json: note      
+        return render json: {errors: note.errors.full_messages}, status: 401 unless note.save   
+        render json: note
     end
 
 

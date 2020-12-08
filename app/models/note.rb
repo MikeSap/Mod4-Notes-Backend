@@ -4,4 +4,7 @@ class Note < ApplicationRecord
 
   has_one_attached :photo
   
+  validates :title, presence: true
+  validates :content, presence: true
+  validates :photo, attached: true
 end
