@@ -7,9 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-mike = User.create(username: "Mike", password:"123", password_confirmation:"123")
+prince = User.create(username: "prince", password:"123", password_confirmation:"123")
 150.times do
    num = rand(1..16)
-   note =  Note.create(title: Faker::Music::Prince.song, content: Faker::Music::Prince.lyric, user: mike )
+   note =  Note.new(title: Faker::Music::Prince.song, content: Faker::Music::Prince.lyric, user: prince  )
    note.photo.attach(io: File.open("app/assets/images/prince#{num}.jpg"), filename: "prince#{num}.jpg", content_type: 'image/jpg')
+   note.save
 end
