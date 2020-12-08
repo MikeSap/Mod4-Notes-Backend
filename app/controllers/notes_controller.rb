@@ -1,4 +1,5 @@
 class NotesController < ApplicationController
+    skip_before_action :require_login
 
     def create     
         note = Note.new(note_params)
